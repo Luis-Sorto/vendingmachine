@@ -8,17 +8,20 @@ const VendingMachine : React.FC = () => {
     return (
         <div className="vendingMachine">
             <div className="vendingMachine__header">
-                <p>Welcome to the</p>
-                <h1>Vending Machine</h1>
-                <p>Created by <span>Luis Sorto</span></p>
+                <p>Welcome to</p>
+                <h1>The Vending Machine</h1>
+                <p className="vendingMachine__header__credits">Created by <span>Luis Sorto</span></p>
             </div>
 
-            
-            <LeftPanel />
+            <div className="vendingMachine__body">
+                <div className="vendingMachine__leftPanel">
+                    <LeftPanel />
+                </div>
 
-            <QueueFeed />
-
-            <DispatchPanel />
+                <div className="vendingMachine__queue">
+                    <QueueFeed />
+                </div>
+            </div>
 
         </div>
     )

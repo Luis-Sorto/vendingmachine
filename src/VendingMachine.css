@@ -1,0 +1,50 @@
+.vendingMahine {
+    margin-top: 40px;
+}
+
+.vendingMachine__header {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 25px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vendingMachine__header > h1 {
+    color: #F320FA;
+    font-weight: bolder;
+}
+
+.vendingMachine__header > p {
+    color: #9A75FC;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.vendingMachine__body {
+    margin: 25px;
+    display: flex;
+}
+
+.vendingMachine__leftPanel {
+    background-color: white;
+    border-radius: 10px;
+    flex: 0.3;
+    margin-right: 25px;
+}
+
+.vendingMachine__queue {
+    background-color: white;
+    border-radius: 10px;
+    flex: 0.7;
+}
+
+.vendingMachine__header__credits {
+    font-size: 14px !important;
+    color: grey !important;
+}

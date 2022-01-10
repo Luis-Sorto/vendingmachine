@@ -1,4 +1,5 @@
 import React from 'react'
+import"./Product.css"
 
 interface ProductProps{
     id: string,
@@ -10,10 +11,13 @@ interface ProductProps{
 const Product : React.FC<ProductProps> = ({id, name, preparation_time, thumbnail}) => {
     return (
         <div className="product">
-            <p>{id}</p>
-            <p>{name}</p>
-            <p> ETA: {preparation_time} s</p>
-            <p>{thumbnail}</p>
+            <div className="product_thumbnail">
+                <img src={thumbnail} alt="" />
+            </div>
+            <div className="product__info">
+                <p className="product__name">{name}</p>
+                <p className="product__eta"> ETA: {preparation_time} s</p>
+            </div>
         </div>
     )
 }

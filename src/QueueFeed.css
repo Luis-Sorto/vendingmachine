@@ -1,0 +1,51 @@
+
+.queueFeed {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.queueFeed__queue {
+    flex: 0.7;
+}
+
+.queueFeed__queue__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #C74BF6;
+}
+
+.queueFeed__queue__header > p {
+    color: white;
+}
+
+.queueFeed__dispatchPanel {
+    flex: 0.3;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.queueFeed__dispatchPanel__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #F320FA;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.queueFeed__dispatchPanel__header > p {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
