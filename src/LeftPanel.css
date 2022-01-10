@@ -1,9 +1,5 @@
-
-
-.leftPanel__productRow {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 10px;
+.leftPanel {
+    min-width: 200px;
 }
 
 .leftPanel__product {
@@ -11,6 +7,15 @@
     border-radius: 10px;
     width: 110px;
     height: 110px;
+    margin-bottom: 10px;
+}
+
+.leftPanel__productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-evenly;
+    
 }
 
 .leftPanel__header {

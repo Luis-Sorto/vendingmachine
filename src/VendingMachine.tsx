@@ -1,5 +1,4 @@
 import React from 'react'
-import DispatchPanel from './DispatchPanel'
 import LeftPanel from './LeftPanel'
 import QueueFeed from './QueueFeed'
 import "./VendingMachine.css"
