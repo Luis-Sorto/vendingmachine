@@ -1,0 +1,8 @@
+.apiCallError {
+    margin: 10px;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

@@ -3,6 +3,7 @@ import "./LeftPanel.css"
 import Axios from "axios"
 import Product from './Product'
 import CircularProgress from '@mui/material/CircularProgress'
+import ApiCallError from './ApiCallError'
 
 interface Product{
     id: string,
@@ -15,28 +16,29 @@ interface Product{
 const LeftPanel : React.FC = () => {
 
     const [products, setProducts] = useState<Product[]>()
+    const [error, setError] = useState(null)
 
     useEffect( () => {
         Axios.get("https://products-api-ten.vercel.app/api")
         .then( (response) => {
             setTimeout(()=>{
                 setProducts(response.data)
-            }, 3000)
+            }, 2000)
         })
         .catch((error) => {
             console.log(error)
+            setError(error)
         })   
     }, [])
 
-    
+    const renderError = () => {
+        return(
+            <ApiCallError />
+        )
+    }
 
-
-    return (
-        <div className="leftPanel">
-            <div className="leftPanel__header">
-                <p>Click to place an order!</p>
-            </div>
-
+    const renderProducts = () => {
+        return(
             <div className="leftPanel__productContainer">
                 { products ?
                     products.map((product, index) => {
@@ -57,6 +59,17 @@ const LeftPanel : React.FC = () => {
                     
                 }
             </div>
+        )
+    }
+    
+
+
+    return (
+        <div className="leftPanel">
+            <div className="leftPanel__header">
+                <p>Click to place an order!</p>
+            </div>
+            {error ? renderError() : renderProducts()}
         </div>
     )
 }

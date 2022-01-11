@@ -42,6 +42,7 @@
     background-color: white;
     border-radius: 10px;
     flex: 0.7;
+    min-height: 300px;
 }
 
 .vendingMachine__header__credits {
