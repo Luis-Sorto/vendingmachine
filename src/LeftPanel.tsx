@@ -4,10 +4,10 @@ import Axios from "axios"
 import Product from './Product'
 import CircularProgress from '@mui/material/CircularProgress'
 import ApiCallError from './ApiCallError'
+
 interface leftPanelProps {
     addToQueue : (item:Product) => void,
 }
-
 
 const LeftPanel : React.FC<leftPanelProps> = ({addToQueue}) => {
 
@@ -40,7 +40,7 @@ const LeftPanel : React.FC<leftPanelProps> = ({addToQueue}) => {
                     products.map((product, index) => {
                         return(
                             <div className="leftPanel__product" key = {index}>
-                                <Product 
+                                <Product
                                     product = {product}
                                     addToQueue={addToQueue} />
                             </div>
@@ -55,8 +55,6 @@ const LeftPanel : React.FC<leftPanelProps> = ({addToQueue}) => {
             </div>
         )
     }
-    
-
 
     return (
         <div className="leftPanel">

@@ -1,8 +1,7 @@
 import React from 'react'
 import"./Product.css"
 
-
-interface Product{
+interface Product {
     id: string,
     name: string,
     preparation_time: number,
@@ -17,9 +16,7 @@ interface ProductProps{
 const Product : React.FC<ProductProps> = ({product, addToQueue}) => {
 
     return (
-        <div className="product" onClick={() => {
-            addToQueue(product)
-        }}>
+        <div className="product" onClick = {() => { addToQueue(product) } } >
             <div className="product_thumbnail">
                 <img src={product.thumbnail} alt="" />
             </div>

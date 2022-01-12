@@ -6,7 +6,7 @@
 }
 
 .queueFeed__queue {
-    flex: 0.7;
+    flex: 0.50;
 }
 
 .queueFeed__queue__header {
@@ -27,7 +27,7 @@
 }
 
 .queueFeed__dispatchPanel {
-    flex: 0.3;
+    flex: 0.50;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -57,11 +57,6 @@
     margin: 10px;
 }
 
-.feed__item > p {
-    font-size: 12px;
-    text-align: center;
-}
-
 .feed__item__thumbnail {
     height: 60px;
 }
@@ -79,10 +74,112 @@
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+    overflow-y: scroll;
+    max-height: 165px;
 }
 
 .queueFeed__dispatchPanel__products {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+    overflow-y: scroll;
+    max-height: 165px;
+}
+
+.feed__item__grabButton {
+    font-size: 12px;
+    font-weight: 600;
+    width: 60%;
+    height: 50px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 10px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+
+}
+
+.feed__item__grabButton:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+
+  .feed__item__grabButton.bn27 {
+    background-image: linear-gradient(
+      to right,
+      #ed6ea0,
+      #ec8c69,
+      #f7186a,
+      #fbb03b
+    );
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+  }
+
+  .feed__item__grabButton:focus {
+    outline: none;
+  }
+
+.feed__item__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 45%;
+}
+
+.feed__item__info > p {
+    font-size: 12px;
+    text-align: center;
+    color: grey;
+}
+
+.feed__item > p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.feed__item__progress {
+    width: 70%;
+}
+
+
+
+progress::-moz-progress-bar { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: lightgrey; } 
+progress::-webkit-progress-value {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50px;
+    background: #C74BF6; }
+progress::-webkit-progress-bar {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: lightgrey;
+    border-radius: 50px;
+    background: lightgrey;  }
+
+progress { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: lightgrey;
+    border-radius: 50px;
+
+
+    color: #C74BF6; 
 }

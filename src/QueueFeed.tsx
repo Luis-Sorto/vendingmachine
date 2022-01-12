@@ -5,6 +5,7 @@ import Product from './Product'
 interface QueuedProduct {
     id : number,
     visibility: boolean,
+    maxTime: number,
     product : Product
 }
 interface queueFeedProps{
@@ -25,7 +26,10 @@ const QueueFeed : React.FC<queueFeedProps> = (props) => {
                             <div className="feed__item__thumbnail">
                                 <img src={item.product.thumbnail} alt="" />
                             </div>
-                            <p>Dispatching {item.product.name} in {item.product.preparation_time} s </p>
+                            <div className="feed__item__info">
+                                <p>Dispatching in {item.product.preparation_time} s </p>
+                                <progress value={item.maxTime - item.product.preparation_time} max={item.maxTime} className="feed__item__progress"></progress>
+                            </div>
                         </div>
                     }
                 </>
@@ -39,22 +43,23 @@ const QueueFeed : React.FC<queueFeedProps> = (props) => {
                 <>
                     {
                         item.product.preparation_time===0 && item.visibility ?
-
                         <div className="feed__item" key={index}>
                             <div className="feed__item__thumbnail">
                                 <img src={item.product.thumbnail} alt="" />
                             </div>
-                            <p> {item.product.name} dispatched! </p>
-                            <button onClick={ () => props.grabItems(item.id, {
+                            <div className="feed__item__info">
+                                <button className="feed__item__grabButton bn27" onClick={ () => props.grabItems(item.id, {
                                 id:item.id,
                                 visibility: false,
+                                maxTime: item.product.preparation_time,
                                 product : {
                                     id: item.product.id,
                                     name: item.product.name,
                                     preparation_time: item.product.preparation_time,
                                     thumbnail: item.product.thumbnail
                                 }
-                                })}>grab</button>
+                                })}>Grab!</button>
+                            </div>
                         </div>: 
                         <></>
                     }

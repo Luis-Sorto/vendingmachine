@@ -6,9 +6,8 @@ import Product from './Product'
 
 interface QueuedProduct {
     id : number,
-
     visibility: boolean,
-
+    maxTime: number,
     product : Product
 }
 
@@ -17,21 +16,17 @@ const VendingMachine : React.FC = () => {
     const [qItems, setItems] = useState<QueuedProduct[]>([])
 
     const addItem = (item:Product) => {
-
-        let newOrder =  {id: Math.floor(Math.random()*1000), visibility:true, product: item}
-
+        let newOrder =  {id: Math.floor(Math.random()*1000), visibility:true, maxTime: item.preparation_time , product: item}
         let newQueue:QueuedProduct[] = [newOrder, ...qItems]
-
         setItems(newQueue)
-
         let countdown = item.preparation_time
-
         const inter = setInterval( () => {
             if(countdown <= 0) {
                 clearInterval(inter)
                 changeItemValue( newOrder.id , {
                     id: newOrder.id,
                     visibility: true,
+                    maxTime: item.preparation_time,
                     product: {
                         id: item.id,
                         name: item.name,
@@ -43,6 +38,7 @@ const VendingMachine : React.FC = () => {
                 changeItemValue( newOrder.id , {
                     id: newOrder.id,
                     visibility: true,
+                    maxTime: item.preparation_time,
                     product: {
                         id: item.id,
                         name: item.name,
@@ -58,23 +54,8 @@ const VendingMachine : React.FC = () => {
     }
 
     const grabItem = (queuedItemId:number, product: QueuedProduct ) => {
-
-        // let index = props.itemsQueue.findIndex( (product) => {
-        //     return product.id === queuedItemId
-        // })
-
-        let newQueue = qItems
-
-        newQueue.splice(queuedItemId,1)
-
-        // setItems(newQueue)
-
         setItems( prev => prev.map( (item) => (item.id === queuedItemId? product : item )))
-
-        console.log(qItems)
-
     }
-
 
     return (
         <div className="vendingMachine">
@@ -83,17 +64,14 @@ const VendingMachine : React.FC = () => {
                 <h1>The Vending Machine</h1>
                 <p className="vendingMachine__header__credits">Created by <span>Luis Sorto</span></p>
             </div>
-
             <div className="vendingMachine__body">
                 <div className="vendingMachine__leftPanel">
                     <LeftPanel addToQueue={addItem}/>
                 </div>
-
                 <div className="vendingMachine__queue">
                     <QueueFeed itemsQueue={qItems} grabItems={grabItem} />
                 </div>
             </div>
-
         </div>
     )
 }
