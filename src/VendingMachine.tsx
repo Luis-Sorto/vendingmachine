@@ -6,6 +6,9 @@ import Product from './Product'
 
 interface QueuedProduct {
     id : number,
+
+    visibility: boolean,
+
     product : Product
 }
 
@@ -15,7 +18,7 @@ const VendingMachine : React.FC = () => {
 
     const addItem = (item:Product) => {
 
-        let newOrder =  {id: Math.floor(Math.random()*1000), product: item}
+        let newOrder =  {id: Math.floor(Math.random()*1000), visibility:true, product: item}
 
         let newQueue:QueuedProduct[] = [newOrder, ...qItems]
 
@@ -28,6 +31,7 @@ const VendingMachine : React.FC = () => {
                 clearInterval(inter)
                 changeItemValue( newOrder.id , {
                     id: newOrder.id,
+                    visibility: true,
                     product: {
                         id: item.id,
                         name: item.name,
@@ -38,6 +42,7 @@ const VendingMachine : React.FC = () => {
                 countdown = countdown - 1
                 changeItemValue( newOrder.id , {
                     id: newOrder.id,
+                    visibility: true,
                     product: {
                         id: item.id,
                         name: item.name,
@@ -50,6 +55,24 @@ const VendingMachine : React.FC = () => {
 
     const changeItemValue = (id:number , newValue: QueuedProduct) => {
         setItems( prev => prev.map( (item) => (item.id === id? newValue : item )))
+    }
+
+    const grabItem = (queuedItemId:number, product: QueuedProduct ) => {
+
+        // let index = props.itemsQueue.findIndex( (product) => {
+        //     return product.id === queuedItemId
+        // })
+
+        let newQueue = qItems
+
+        newQueue.splice(queuedItemId,1)
+
+        // setItems(newQueue)
+
+        setItems( prev => prev.map( (item) => (item.id === queuedItemId? product : item )))
+
+        console.log(qItems)
+
     }
 
 
@@ -67,7 +90,7 @@ const VendingMachine : React.FC = () => {
                 </div>
 
                 <div className="vendingMachine__queue">
-                    <QueueFeed itemsQueue={qItems} />
+                    <QueueFeed itemsQueue={qItems} grabItems={grabItem} />
                 </div>
             </div>
 
