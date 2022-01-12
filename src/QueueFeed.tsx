@@ -1,7 +1,29 @@
 import React from 'react'
 import "./QueueFeed.css"
+import Product from './Product'
 
-const QueueFeed : React.FC = () => {
+interface QueuedProduct {
+    id : number,
+    product : Product
+}
+interface queueFeedProps{
+    itemsQueue: QueuedProduct[]
+}
+
+const QueueFeed : React.FC<queueFeedProps> = (props) => {
+
+    const renderQueueItems = () => {
+        console.log(props)
+        return props.itemsQueue.map( (item, index) => {
+            return(
+                <div className="feed__item" key={index}>
+                    <p>Dispatching {item.product.name} ... in {item.product.preparation_time} s </p> 
+                </div>
+            )
+        })
+    }
+
+
     return (
         <div className="queueFeed">
             <div className="queueFeed__queue">
@@ -9,7 +31,7 @@ const QueueFeed : React.FC = () => {
                     <p>Your order will appear below</p>
                 </div>
                 <div className="queueFeed__queue__feed">
-
+                    {renderQueueItems()}
                 </div>
             </div>
             <div className="queueFeed__dispatchPanel">

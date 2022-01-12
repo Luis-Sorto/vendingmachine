@@ -4,16 +4,12 @@ import Axios from "axios"
 import Product from './Product'
 import CircularProgress from '@mui/material/CircularProgress'
 import ApiCallError from './ApiCallError'
-
-interface Product{
-    id: string,
-    name: string,
-    preparation_time: number,
-    thumbnail: string
+interface leftPanelProps {
+    addToQueue : (item:Product) => void,
 }
 
 
-const LeftPanel : React.FC = () => {
+const LeftPanel : React.FC<leftPanelProps> = ({addToQueue}) => {
 
     const [products, setProducts] = useState<Product[]>()
     const [error, setError] = useState(null)
@@ -45,10 +41,8 @@ const LeftPanel : React.FC = () => {
                         return(
                             <div className="leftPanel__product" key = {index}>
                                 <Product 
-                                    id = {product.id} 
-                                    name = {product.name} 
-                                    preparation_time = {product.preparation_time} 
-                                    thumbnail = {product.thumbnail} />
+                                    product = {product}
+                                    addToQueue={addToQueue} />
                             </div>
                         )   
                     }) : 
