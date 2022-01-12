@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import LeftPanel from './LeftPanel'
 import QueueFeed from './QueueFeed'
-import "./VendingMachine.css"
+import "../css/VendingMachine.css"
 import Product from './Product'
 
 interface QueuedProduct {

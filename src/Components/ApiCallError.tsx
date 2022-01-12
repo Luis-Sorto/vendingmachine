@@ -1,6 +1,5 @@
 import { Alert, AlertTitle } from '@mui/material'
-import React from 'react'
-import "./ApiCallError.css"
+import "../css/ApiCallError.css"
 
 const ApiCallError = () => {
     return (

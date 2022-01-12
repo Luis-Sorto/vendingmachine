@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import VendingMachine from './VendingMachine';
+import VendingMachine from './Components/VendingMachine';
 
 const App : React.FC = () => {
   return (

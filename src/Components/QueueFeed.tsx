@@ -1,5 +1,5 @@
 import React from 'react'
-import "./QueueFeed.css"
+import "../css/QueueFeed.css"
 import Product from './Product'
 
 interface QueuedProduct {

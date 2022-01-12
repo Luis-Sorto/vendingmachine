@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import "./LeftPanel.css"
+import "../css/LeftPanel.css"
 import Axios from "axios"
 import Product from './Product'
 import CircularProgress from '@mui/material/CircularProgress'
