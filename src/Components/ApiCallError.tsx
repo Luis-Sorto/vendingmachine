@@ -1,5 +1,5 @@
-import { Alert, AlertTitle } from '@mui/material'
-import "../css/ApiCallError.css"
+import { Alert, AlertTitle } from "@mui/material";
+import "../css/ApiCallError.css";
 
 const ApiCallError = () => {
     return (
@@ -9,7 +9,7 @@ const ApiCallError = () => {
                 An error ocurred while — <strong>loading the products</strong>
             </Alert>
         </div>
-    )
-}
+    );
+};
 
-export default ApiCallError
+export default ApiCallError;

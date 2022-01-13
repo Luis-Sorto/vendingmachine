@@ -6,12 +6,11 @@
 }
 
 .product:hover {
-    -webkit-box-shadow: 0px 0px 10px 0px #F320FA;
-    -moz-box-shadow: 0px 0px 10px 0px #F320FA;
-    box-shadow: 0px 0px 10px 0px #F320FA;
+    -webkit-box-shadow: 0px 0px 10px 0px #f320fa;
+    -moz-box-shadow: 0px 0px 10px 0px #f320fa;
+    box-shadow: 0px 0px 10px 0px #f320fa;
     z-index: 3;
     transition: 0.3s;
-
 }
 
 .product__info {

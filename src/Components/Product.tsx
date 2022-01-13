@@ -1,22 +1,26 @@
-import React from 'react'
-import"../css/Product.css"
+import React from "react";
+import "../css/Product.css";
 
 interface Product {
-    id: string,
-    name: string,
-    preparation_time: number,
-    thumbnail: string,
+    id: string;
+    name: string;
+    preparation_time: number;
+    thumbnail: string;
 }
 
-interface ProductProps{
-    product: Product,
-    addToQueue: (product:Product) => void
+interface ProductProps {
+    product: Product;
+    addToQueue: (product: Product) => void;
 }
 
-const Product : React.FC<ProductProps> = ({product, addToQueue}) => {
-
+const Product: React.FC<ProductProps> = ({ product, addToQueue }) => {
     return (
-        <div className="product" onClick = {() => { addToQueue(product) } } >
+        <div
+            className="product"
+            onClick={() => {
+                addToQueue(product);
+            }}
+        >
             <div className="product_thumbnail">
                 <img src={product.thumbnail} alt="" />
             </div>
@@ -25,7 +29,7 @@ const Product : React.FC<ProductProps> = ({product, addToQueue}) => {
                 <p className="product__eta"> ETA: {product.preparation_time} s</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Product
+export default Product;
