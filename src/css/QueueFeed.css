@@ -144,10 +144,8 @@
 }
 
 progress::-moz-progress-bar {
-    -webkit-appearance: none;
     -moz-appearance: none;
-    appearance: none;
-    background: lightgrey;
+    background: #c74bf6;
 }
 progress::-webkit-progress-value {
     -webkit-appearance: none;

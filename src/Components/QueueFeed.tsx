@@ -17,23 +17,21 @@ const QueueFeed: React.FC<queueFeedProps> = (props) => {
     const renderQueueItems = () => {
         return props.itemsQueue.map((item, index) => {
             return (
-                <>
-                    {item.product.preparation_time > 0 && (
-                        <div className="feed__item" key={index}>
-                            <div className="feed__item__thumbnail">
-                                <img src={item.product.thumbnail} alt="" />
-                            </div>
-                            <div className="feed__item__info">
-                                <p>Dispatching in {item.product.preparation_time} s </p>
-                                <progress
-                                    value={item.maxTime - item.product.preparation_time}
-                                    max={item.maxTime}
-                                    className="feed__item__progress"
-                                />
-                            </div>
+                item.product.preparation_time > 0 && (
+                    <div className="feed__item" key={index}>
+                        <div className="feed__item__thumbnail">
+                            <img src={item.product.thumbnail} alt="" />
                         </div>
-                    )}
-                </>
+                        <div className="feed__item__info">
+                            <p>Dispatching in {item.product.preparation_time} s </p>
+                            <progress
+                                value={item.maxTime - item.product.preparation_time}
+                                max={item.maxTime}
+                                className="feed__item__progress"
+                            />
+                        </div>
+                    </div>
+                )
             );
         });
     };
@@ -41,35 +39,34 @@ const QueueFeed: React.FC<queueFeedProps> = (props) => {
     const renderDispatcedItems = () => {
         return props.itemsQueue.map((item, index) => {
             return (
-                <>
-                    {item.product.preparation_time === 0 && item.visibility && (
-                        <div className="feed__item" key={index}>
-                            <div className="feed__item__thumbnail">
-                                <img src={item.product.thumbnail} alt="" />
-                            </div>
-                            <div className="feed__item__info">
-                                <button
-                                    className="feed__item__grabButton bn27"
-                                    onClick={() =>
-                                        props.grabItems(item.id, {
-                                            id: item.id,
-                                            visibility: false,
-                                            maxTime: item.product.preparation_time,
-                                            product: {
-                                                id: item.product.id,
-                                                name: item.product.name,
-                                                preparation_time: item.product.preparation_time,
-                                                thumbnail: item.product.thumbnail,
-                                            },
-                                        })
-                                    }
-                                >
-                                    Grab!
-                                </button>
-                            </div>
+                item.product.preparation_time === 0 &&
+                item.visibility && (
+                    <div className="feed__item" key={index}>
+                        <div className="feed__item__thumbnail">
+                            <img src={item.product.thumbnail} alt="" />
                         </div>
-                    )}
-                </>
+                        <div className="feed__item__info">
+                            <button
+                                className="feed__item__grabButton bn27"
+                                onClick={() =>
+                                    props.grabItems(item.id, {
+                                        id: item.id,
+                                        visibility: false,
+                                        maxTime: item.product.preparation_time,
+                                        product: {
+                                            id: item.product.id,
+                                            name: item.product.name,
+                                            preparation_time: item.product.preparation_time,
+                                            thumbnail: item.product.thumbnail,
+                                        },
+                                    })
+                                }
+                            >
+                                Grab!
+                            </button>
+                        </div>
+                    </div>
+                )
             );
         });
     };

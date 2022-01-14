@@ -22,17 +22,6 @@ const VendingMachine: React.FC = () => {
         const inter = setInterval(() => {
             if (countdown <= 0) {
                 clearInterval(inter);
-                changeItemValue(newOrder.id, {
-                    id: newOrder.id,
-                    visibility: true,
-                    maxTime: item.preparation_time,
-                    product: {
-                        id: item.id,
-                        name: item.name,
-                        preparation_time: countdown,
-                        thumbnail: item.thumbnail,
-                    },
-                });
             } else {
                 countdown = countdown - 1;
                 changeItemValue(newOrder.id, {
