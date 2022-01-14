@@ -29,7 +29,7 @@ const QueueFeed: React.FC<queueFeedProps> = (props) => {
                                     value={item.maxTime - item.product.preparation_time}
                                     max={item.maxTime}
                                     className="feed__item__progress"
-                                ></progress>
+                                />
                             </div>
                         </div>
                     )}

@@ -153,8 +153,9 @@ progress::-webkit-progress-value {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius: 10px;
+    border-radius: 50px;
     background: #c74bf6;
+    position: relative;
 }
 progress::-webkit-progress-bar {
     -webkit-appearance: none;
@@ -170,6 +171,7 @@ progress {
     -moz-appearance: none;
     appearance: none;
     background-color: lightgrey;
-    border-radius: 10px;
+    border-radius: 50px;
     color: #c74bf6;
+    height: 5px;
 }
